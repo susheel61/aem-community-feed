@@ -1,6 +1,16 @@
-<div class="panel panel-info" ng-repeat="feed in feeds">
-	<div class="panel-heading">
-		<h3 class="panel-title"><a target="_blank" href="{{feed.link}}">{{feed.title}}</a></h3>
+<div class="form-group clearfix">
+    <div class="col-sm-6">
+      <input type="search" class="form-control" id="search" placeholder="Search posts">
+    </div>
+</div>
+<div ng-hide="dataLoaded">
+    <i class="glyphicon glyphicon-refresh text-center spin" style="font-size:40px"></i>
+</div>
+<div ng-show="dataLoaded">
+	<div class="panel panel-info" ng-repeat="feed in feeds | filter:postsearch">
+		<div class="panel-heading">
+			<h3 class="panel-title"><a target="_blank" href="{{feed.link}}">{{feed.title}}</a></h3>
+		</div>
+		<div class="panel-body" ng-bind-html="feed.description"></div>					
 	</div>
-	<div class="panel-body" ng-bind-html="feed.description"></div>					
 </div>

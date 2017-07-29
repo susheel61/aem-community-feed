@@ -9,16 +9,15 @@ app.service("Util", ["$http", function($http) {
 
 app.directive("aemCommunityFeed", [function() {
     return {
-        scope: {
-            'url': '='
-        },
         templateUrl: 'directive/community-panel.html',
         controller:'communityFeedController'
     }
 }]);
 
 app.controller("communityFeedController", ["$scope", "Util", function($scope, util) {
+	$scope.dataLoaded = false;
 	util.getAemCommunityFeed().then(function(response){		
 		$scope.feeds = response;
+		$scope.dataLoaded = true;
 	});
 }]);
