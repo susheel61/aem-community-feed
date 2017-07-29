@@ -1,0 +1,6 @@
+<div class="panel panel-info" ng-repeat="feed in feeds">
+	<div class="panel-heading">
+		<h3 class="panel-title"><a target="_blank" href="{{feed.link}}">{{feed.title}}</a></h3>
+	</div>
+	<div class="panel-body" ng-bind-html="feed.description"></div>					
+</div>
