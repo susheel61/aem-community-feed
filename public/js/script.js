@@ -15,9 +15,15 @@ app.directive("aemCommunityFeed", [function() {
 }]);
 
 app.controller("communityFeedController", ["$scope", "Util", function($scope, util) {
-	$scope.dataLoaded = false;
-	util.getAemCommunityFeed().then(function(response){		
-		$scope.feeds = response;
-		$scope.dataLoaded = true;
-	});
+	function callService() {
+		$scope.dataLoaded = false;
+		util.getAemCommunityFeed().then(function(response){		
+			$scope.feeds = response;
+			$scope.dataLoaded = true;
+		});
+	}	
+	callService();
+	$scope.refresh = function() {
+		callService();
+	}
 }]);

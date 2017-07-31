@@ -24,3 +24,7 @@
 	animation: spin infinite linear;
 	-webkit-animation: spin 1s infinite linear;
 }
+
+img {
+	max-width:100%;
+}
